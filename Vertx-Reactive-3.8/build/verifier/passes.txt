@@ -1,6 +1,0 @@
-Vertx-Reactive-3.8 io.vertx:vertx-rx-java2:3.8.1
-Vertx-Reactive-3.8 io.vertx:vertx-rx-java2:3.8.2
-Vertx-Reactive-3.8 io.vertx:vertx-rx-java2:3.8.4
-Vertx-Reactive-3.8 io.vertx:vertx-rx-java2:3.8.3
-Vertx-Reactive-3.8 io.vertx:vertx-rx-java2:3.8.5
-Vertx-Reactive-3.8 io.vertx:vertx-rx-java2:3.8.0

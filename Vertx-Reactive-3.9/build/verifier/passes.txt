@@ -1,4 +1,0 @@
-Vertx-Reactive-3.9 io.vertx:vertx-rx-java2:3.9.0
-Vertx-Reactive-3.9 io.vertx:vertx-rx-java2:3.9.2
-Vertx-Reactive-3.9 io.vertx:vertx-rx-java2:3.9.1
-Vertx-Reactive-3.9 io.vertx:vertx-rx-java2:3.9.3

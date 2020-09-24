@@ -1,8 +1,0 @@
-Vertx-JDBCClient-3.8.1 io.vertx:vertx-jdbc-client:3.9.1
-Vertx-JDBCClient-3.8.1 io.vertx:vertx-jdbc-client:3.9.2
-Vertx-JDBCClient-3.8.1 io.vertx:vertx-jdbc-client:3.8.2
-Vertx-JDBCClient-3.8.1 io.vertx:vertx-jdbc-client:3.8.1
-Vertx-JDBCClient-3.8.1 io.vertx:vertx-jdbc-client:3.8.3
-Vertx-JDBCClient-3.8.1 io.vertx:vertx-jdbc-client:3.9.0
-Vertx-JDBCClient-3.8.1 io.vertx:vertx-jdbc-client:3.8.5
-Vertx-JDBCClient-3.8.1 io.vertx:vertx-jdbc-client:3.8.4
