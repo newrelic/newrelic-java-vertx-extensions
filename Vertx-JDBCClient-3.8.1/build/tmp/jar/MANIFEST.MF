@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Implementation-Title: Vertx-JDBCClientVertx-JDBCClient-3.8.1.Vertx-JDB
+ CClient-3.8.1
+Implementation-Version: 1.0
+Implementation-Vendor-Id: com.newrelic
+Implementation-Vendor: New Relic
+

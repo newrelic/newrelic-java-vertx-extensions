@@ -1,0 +1,30 @@
+
+// Build.gradle generated for instrumentation module Vertx-Redis-3.9
+
+apply plugin: 'java'
+
+dependencies {
+	compile group: 'io.vertx', name: 'vertx-redis-client', version: '3.9.0'
+
+   // New Relic Java Agent dependencies
+   implementation 'com.newrelic.agent.java:newrelic-agent:6.0.0'
+   implementation 'com.newrelic.agent.java:newrelic-api:6.0.0'
+
+   implementation fileTree(include: ['*.jar'], dir: '../lib')
+}
+
+jar {
+  manifest {
+    attributes 'Implementation-Title': 'Vertx-Redis-3.6Vertx-Redis-3.9.Vertx-Redis-3.9'
+    attributes 'Implementation-Vendor': 'New Relic'
+    attributes 'Implementation-Vendor-Id': 'com.newrelic'
+    attributes 'Implementation-Version': 1.0
+  }
+}
+
+verifyInstrumentation {
+	passes "io.vertx:vertx-redis-client:[3.9.0,4.0.0)"
+	excludeRegex '.*SNAPSHOT'
+	excludeRegex '.*milestone.*'
+	excludeRegex '.*Beta.*'
+}

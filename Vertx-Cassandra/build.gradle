@@ -1,0 +1,30 @@
+
+// Build.gradle generated for instrumentation module Vertx-Cassandra
+
+apply plugin: 'java'
+
+dependencies {
+	compile group: 'io.vertx', name: 'vertx-cassandra-client', version: '3.6.0'
+
+   // New Relic Java Agent dependencies
+   implementation 'com.newrelic.agent.java:newrelic-agent:6.0.0'
+   implementation 'com.newrelic.agent.java:newrelic-api:6.0.0'
+
+   implementation fileTree(include: ['*.jar'], dir: '../lib')
+}
+
+jar {
+  manifest {
+    attributes 'Implementation-Title': 'Vertx-Cassandra.Vertx-Cassandra'
+    attributes 'Implementation-Vendor': 'New Relic'
+    attributes 'Implementation-Vendor-Id': 'com.newrelic'
+    attributes 'Implementation-Version': 1.0
+  }
+}
+
+verifyInstrumentation {
+  	passes 'io.vertx:vertx-cassandra-client:[3.6.0,4.0.0)'
+  	excludeRegex '.*SNAPSHOT'
+  	excludeRegex '.*Beta.*'
+  	excludeRegex '.*milestone.*'
+}

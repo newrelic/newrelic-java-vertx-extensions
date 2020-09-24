@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Implementation-Title: Vertx-Reactive-3.8.Vertx-Reactive-3.8
+Implementation-Version: 1.0
+Implementation-Vendor-Id: com.newrelic
+Implementation-Vendor: New Relic
+

@@ -1,0 +1,4 @@
+Vertx-Redis-3.6 io.vertx:vertx-redis-client:3.6.3
+Vertx-Redis-3.6 io.vertx:vertx-redis-client:3.6.1
+Vertx-Redis-3.6 io.vertx:vertx-redis-client:3.6.0
+Vertx-Redis-3.6 io.vertx:vertx-redis-client:3.6.2
