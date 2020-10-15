@@ -1,0 +1,31 @@
+
+// Build.gradle generated for instrumentation module Vertx-MongoDB
+
+apply plugin: 'java'
+
+dependencies {
+   implementation 'io.vertx:vertx-mongo-client:3.4.2'
+   
+   // New Relic Java Agent dependencies
+   implementation 'com.newrelic.agent.java:newrelic-agent:6.0.0'
+   implementation 'com.newrelic.agent.java:newrelic-api:6.0.0'
+
+   implementation fileTree(include: ['*.jar'], dir: '../lib')
+}
+
+jar {
+  manifest {
+    attributes 'Implementation-Title': 'com.newrelic.instrumentation.Vertx-MongoDB'
+    attributes 'Implementation-Vendor': 'New Relic'
+    attributes 'Implementation-Vendor-Id': 'com.newrelic'
+    attributes 'Implementation-Version': 1.0
+  }
+}
+
+verifyInstrumentation {
+  	passes 'io.vertx:vertx-mongo-client:[3.4.2,3.5.1)'
+  	excludeRegex '.*SNAPSHOT'
+	excludeRegex '.*CR.*'
+	excludeRegex '.*milestone.*'
+	excludeRegex '.*Beta.*'
+}

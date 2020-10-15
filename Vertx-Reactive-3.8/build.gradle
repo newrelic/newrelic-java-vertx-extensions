@@ -4,8 +4,8 @@
 apply plugin: 'java'
 
 dependencies {
-    compile group: 'io.vertx', name: 'vertx-rx-java2', version: '3.8.0'
-    compile group: 'io.vertx', name: 'vertx-jdbc-client', version: '3.8.0'
+    implementation group: 'io.vertx', name: 'vertx-rx-java2', version: '3.8.0'
+    implementation group: 'io.vertx', name: 'vertx-jdbc-client', version: '3.8.0'
 
    // New Relic Java Agent dependencies
    implementation 'com.newrelic.agent.java:newrelic-agent:6.0.0'

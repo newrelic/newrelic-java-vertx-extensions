@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry output="bin/main" kind="src" path="src/main/java">
+		<attributes>
+			<attribute name="gradle_scope" value="main"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry output="bin/test" kind="src" path="src/test/java">
+		<attributes>
+			<attribute name="gradle_scope" value="test"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin/default"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/"/>
+	<classpathentry sourcepath="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/io.vertx/vertx-lang-kotlin-coroutines/3.5.0/777ada20b07b3192c0a82bb1cf57c6536fd79366/vertx-lang-kotlin-coroutines-3.5.0-sources.jar" kind="lib" path="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/io.vertx/vertx-lang-kotlin-coroutines/3.5.0/3f1b005a3b877c77d8112dab815dd9848e1b6159/vertx-lang-kotlin-coroutines-3.5.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/com.newrelic.agent.java/newrelic-agent/6.0.0/240d18f35d37cd32b0f4c9ac8d93c0fb940a3d69/newrelic-agent-6.0.0-sources.jar" kind="lib" path="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/com.newrelic.agent.java/newrelic-agent/6.0.0/e1ff45736ad201ae1ad09b4be76cd9d48a08b322/newrelic-agent-6.0.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/com.newrelic.agent.java/newrelic-api/6.0.0/5297ca7188d72a14bfef17f0f65ef84d67ff519d/newrelic-api-6.0.0-sources.jar" kind="lib" path="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/com.newrelic.agent.java/newrelic-api/6.0.0/241674880fc42dd0b482e099379e66bb0b509596/newrelic-api-6.0.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre8/1.1.51/df8f681cc96d6198dcd69669118e6a4eab5c3e95/kotlin-stdlib-jre8-1.1.51-sources.jar" kind="lib" path="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre8/1.1.51/cc8e639ff087472268912159cd66c01f2765c657/kotlin-stdlib-jre8-1.1.51.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core/0.19.1/564ecbc1592f93211e4df49b9f01da988ad4601b/kotlinx-coroutines-core-0.19.1-sources.jar" kind="lib" path="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core/0.19.1/f31f27cf3e568dbe84e3cced5fef627fab7cc033/kotlinx-coroutines-core-0.19.1.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/dhilpipre/.m2/repository/io/vertx/vertx-core/3.5.0/vertx-core-3.5.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre7/1.1.51/f5c617b826da56c4d691c0094d42749bd1e62e21/kotlin-stdlib-jre7-1.1.51-sources.jar" kind="lib" path="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre7/1.1.51/8b5933578dc55f32cfc1a25f1db6371e4161fb8f/kotlin-stdlib-jre7-1.1.51.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.51/b44aed5fe16fe27bb75488a2274d435e875fdb44/kotlin-stdlib-1.1.51-sources.jar" kind="lib" path="/Users/dhilpipre/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.51/e34fe80c9714240525f665113dd3749415515655/kotlin-stdlib-1.1.51.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/dhilpipre/.m2/repository/io/netty/netty-codec-http2/4.1.15.Final/netty-codec-http2-4.1.15.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.m2/repository/io/netty/netty-handler/4.1.15.Final/netty-handler-4.1.15.Final-sources.jar" kind="lib" path="/Users/dhilpipre/.m2/repository/io/netty/netty-handler/4.1.15.Final/netty-handler-4.1.15.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/dhilpipre/.m2/repository/io/netty/netty-handler-proxy/4.1.15.Final/netty-handler-proxy-4.1.15.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/dhilpipre/.m2/repository/io/netty/netty-resolver-dns/4.1.15.Final/netty-resolver-dns-4.1.15.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/dhilpipre/.m2/repository/io/netty/netty-codec-http/4.1.15.Final/netty-codec-http-4.1.15.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/dhilpipre/.m2/repository/io/netty/netty-codec-socks/4.1.15.Final/netty-codec-socks-4.1.15.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/dhilpipre/.m2/repository/io/netty/netty-codec-dns/4.1.15.Final/netty-codec-dns-4.1.15.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.m2/repository/io/netty/netty-codec/4.1.15.Final/netty-codec-4.1.15.Final-sources.jar" kind="lib" path="/Users/dhilpipre/.m2/repository/io/netty/netty-codec/4.1.15.Final/netty-codec-4.1.15.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.m2/repository/io/netty/netty-transport/4.1.15.Final/netty-transport-4.1.15.Final-sources.jar" kind="lib" path="/Users/dhilpipre/.m2/repository/io/netty/netty-transport/4.1.15.Final/netty-transport-4.1.15.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.m2/repository/io/netty/netty-buffer/4.1.15.Final/netty-buffer-4.1.15.Final-sources.jar" kind="lib" path="/Users/dhilpipre/.m2/repository/io/netty/netty-buffer/4.1.15.Final/netty-buffer-4.1.15.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.m2/repository/io/netty/netty-resolver/4.1.15.Final/netty-resolver-4.1.15.Final-sources.jar" kind="lib" path="/Users/dhilpipre/.m2/repository/io/netty/netty-resolver/4.1.15.Final/netty-resolver-4.1.15.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.m2/repository/io/netty/netty-common/4.1.15.Final/netty-common-4.1.15.Final-sources.jar" kind="lib" path="/Users/dhilpipre/.m2/repository/io/netty/netty-common/4.1.15.Final/netty-common-4.1.15.Final.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/dhilpipre/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.0/jackson-databind-2.9.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/dhilpipre/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.0/jackson-core-2.9.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0-sources.jar" kind="lib" path="/Users/dhilpipre/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0-sources.jar" kind="lib" path="/Users/dhilpipre/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.m2/repository/junit/junit/4.11/junit-4.11-sources.jar" kind="lib" path="/Users/dhilpipre/.m2/repository/junit/junit/4.11/junit-4.11.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/dhilpipre/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar" kind="lib" path="/Users/dhilpipre/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/dhilpipre/Open-Source/newrelic-java-vertx-extensions/lib/agent-bridge-5.11.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+</classpath>
