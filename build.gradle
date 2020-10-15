@@ -64,7 +64,7 @@ task createModule {
       projectGroup = projectGroup.trim()
     }
       
-    def projectLibDir = new File(rootProject+'/lib')
+    def projectLibDir = new File(rootProject+'/libs')
 
     def projectPath = new File(projectName)
     if (projectPath.exists()) {
@@ -135,7 +135,7 @@ subprojects {
   targetCompatibility = project.javaVersion
 
   dependencies {
-    testImplementation  fileTree(dir: '../lib', include: "*.jar") // + project.javaAgentVersion
+    testImplementation  fileTree(dir: '../libs', include: "*.jar") // + project.javaAgentVersion
     testImplementation 'org.nanohttpd:nanohttpd:2.3.1'
     testImplementation 'com.newrelic.agent.java:newrelic-agent:' + project.javaAgentVersion
   }
