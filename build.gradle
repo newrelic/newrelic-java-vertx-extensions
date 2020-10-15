@@ -7,7 +7,16 @@ project.ext {
 
   // Aligned with minimum Java major version supported by latest Java Agent
   javaVersion = JavaVersion.VERSION_1_8
+  
+}
 
+    task checkForDependencies(type: Exec) {
+        environment "JAVAAGENTVERSION", javaAgentVersion
+        def rootProject = projectDir.path
+        def cmdLine = rootProject+'/newrelic-dependencies.sh'
+        workingDir rootProject
+        commandLine  cmdLine 
+        
 }
 
 buildscript {
@@ -23,7 +32,7 @@ buildscript {
     mavenCentral()
     gradlePluginPortal()
   }
-
+    
   dependencies {
     classpath 'gradle-templates:gradle-templates:1.5'
     classpath 'com.newrelic.agent.java:gradle-verify-instrumentation-plugin:3.2'
@@ -33,10 +42,14 @@ buildscript {
 import templates.*
 
 task createModule {
+  dependsOn checkForDependencies
   description = 'Generate project files for a new instrumentation module'
   group = 'New Relic'
   doLast {
-    String projectGroup = TemplatesPlugin.prompt('Instrumentation Module Group (default: ' + project.ext.group + '):\n')
+    
+    def rootProject = projectDir.path
+    
+    String projectGroup = TemplatesPlugin.prompt('Instrumentation Module Group (default: ' + project.ext.group + ') (Hit return to use default):\n')
     String projectName = TemplatesPlugin.prompt('Instrumentation Module Name:\n')
 
     if (projectName == null) {
@@ -50,6 +63,8 @@ task createModule {
     } else {
       projectGroup = projectGroup.trim()
     }
+      
+    def projectLibDir = new File(rootProject+'/lib')
 
     def projectPath = new File(projectName)
     if (projectPath.exists()) {
@@ -60,8 +75,7 @@ task createModule {
     def projectTest = new File(projectPath, 'src/test/java')
     mkdir projectJava
     mkdir projectTest
-    
-    
+
     ProjectTemplate.fromRoot(projectPath) {
        'build.gradle' '''
         // Build.gradle generated for instrumentation module PROJECT_NAME
@@ -76,8 +90,7 @@ task createModule {
            // New Relic Java Agent dependencies
            implementation 'com.newrelic.agent.java:newrelic-agent:JAVA_AGENT_VERSION'
            implementation 'com.newrelic.agent.java:newrelic-api:JAVA_AGENT_VERSION'
-           
-           implementation fileTree(include: ['*.jar'], dir: '../lib')
+           implementation fileTree(include: ['*.jar'], dir: '../libs')
         }
 
         jar {
@@ -122,12 +135,12 @@ subprojects {
   targetCompatibility = project.javaVersion
 
   dependencies {
-    testImplementation group: 'junit', name: 'junit', version: '4.11'
-    //testImplementation 'com.newrelic.agent.java:instrumentation-test:' + project.javaAgentVersion
+    testImplementation  fileTree(dir: '../lib', include: "*.jar") // + project.javaAgentVersion
+    testImplementation 'org.nanohttpd:nanohttpd:2.3.1'
     testImplementation 'com.newrelic.agent.java:newrelic-agent:' + project.javaAgentVersion
   }
 
-  task install(dependsOn: jar, type: Copy) {
+  task install(dependsOn: jar,type: Copy) {
     description = 'Copies compiled jar to the NEW_RELIC_EXTENSIONS_DIR.'
     group  = 'New Relic'
 
