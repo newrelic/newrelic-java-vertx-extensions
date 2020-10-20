@@ -6,7 +6,11 @@
 
 ## Installation
 
-> [Include a step-by-step procedure on how to get your code installed. Be sure to include any third-party dependencies that need to be installed separately]
+> To install:
+> 1. In the New Relic Java Agent directory (directory containing newrelic.jar), create a directory named extensions if it does not already exist
+> 2. Download the desired jars from the current release
+> 3. Copy the downloaded jars into the extensions directory
+> 4. Restart the application
 
 ## Getting Started
 
