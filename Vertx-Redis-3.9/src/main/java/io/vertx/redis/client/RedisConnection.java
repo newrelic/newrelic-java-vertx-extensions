@@ -4,6 +4,7 @@ import com.newrelic.api.agent.DatastoreParameters;
 import com.newrelic.api.agent.NewRelic;
 import com.newrelic.api.agent.Segment;
 import com.newrelic.api.agent.Token;
+import com.newrelic.api.agent.Trace;
 import com.newrelic.api.agent.weaver.MatchType;
 import com.newrelic.api.agent.weaver.Weave;
 import com.newrelic.api.agent.weaver.Weaver;
@@ -17,7 +18,7 @@ import io.vertx.redis.client.impl.CommandImpl;
 @Weave(type=MatchType.Interface)
 public abstract class RedisConnection {
 
-	
+	@Trace
 	public RedisConnection send(Request command, Handler<AsyncResult<Response>> onSend) {
 		Command cmd = command.command();
 		String cmdName = "Unknown";

@@ -27,4 +27,5 @@ verifyInstrumentation {
   	excludeRegex '.*SNAPSHOT'
   	excludeRegex '.*Beta.*'
   	excludeRegex '.*milestone.*'
+  	excludeRegex '.*CR.*'
 }
