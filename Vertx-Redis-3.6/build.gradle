@@ -23,7 +23,7 @@ jar {
 }
 
 verifyInstrumentation {
-	passes('io.vertx:vertx-redis-client:[3.6.0,3.7.0]') {
+	passes('io.vertx:vertx-redis-client:[3.6.0,3.7.0)') {
 		compile('io.reactivex.rxjava2:rxjava:2.2.17')
 	}
 	excludeRegex '.*SNAPSHOT'
