@@ -1,4 +1,4 @@
-package com.nr.instrumentation.vertx;
+package com.nr.instrumentation.vertx.cassandra;
 
 import com.newrelic.api.agent.NewRelic;
 import com.newrelic.api.agent.Segment;
