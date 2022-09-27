@@ -14,6 +14,7 @@ import kotlin.jvm.functions.Function1;
 @Weave
 public abstract class VertxCoroutineKt {
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Trace
 	public static <T> Object awaitEvent(Function1<? super Handler<T>, Unit> f, Continuation<? super T> c) {
 		NRFunction1Wrapper<? super Handler<T>> wrapper = new NRFunction1Wrapper(f, NewRelic.getAgent().getTransaction().getToken());

@@ -15,93 +15,181 @@ import io.vertx.ext.mongo.MongoClientUpdateResult;
 import io.vertx.ext.mongo.UpdateOptions;
 import io.vertx.ext.mongo.WriteOption;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.function.Function;
 
 import com.mongodb.async.SingleResultCallback;
 import com.newrelic.api.agent.NewRelic;
 import com.newrelic.api.agent.Trace;
+import com.newrelic.api.agent.TracedMethod;
 import com.newrelic.api.agent.weaver.Weave;
 import com.newrelic.api.agent.weaver.Weaver;
+import com.newrelic.instrumentation.vertx.mongodb.VertxMongoDBUtils;
 
 @Weave
 public abstract class MongoClientImpl {
 
 	@Trace(dispatcher=true)
 	public MongoClient bulkWriteWithOptions(String collection, List<BulkOperation> operations,BulkWriteOptions bulkWriteOptions, Handler<AsyncResult<MongoClientBulkWriteResult>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","bulkWrite"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","bulkWrite"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient count(String collection, JsonObject query, Handler<AsyncResult<Long>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","count"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "Query", query);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","count"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient createIndexWithOptions(String collection, JsonObject key, IndexOptions options, Handler<AsyncResult<Void>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","createIndex"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "Key", key);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","createIndex"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient distinct(String collection, String fieldName, String resultClassname, Handler<AsyncResult<JsonArray>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","distinct"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "FieldName", fieldName);
+		VertxMongoDBUtils.addAttribute(attributes, "ResultClassname", resultClassname);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","distinct"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient distinctBatch(String collection, String fieldName, String resultClassname, Handler<AsyncResult<JsonObject>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","distinctBatch"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "FieldName", fieldName);
+		VertxMongoDBUtils.addAttribute(attributes, "ResultClassname", resultClassname);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","distinctBatch"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient dropCollection(String collection, Handler<AsyncResult<Void>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","dropCollection"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","dropCollection"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public MongoClient dropIndex(String collection, String indexName, Handler<AsyncResult<Void>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","dropIndex"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "IndexName", indexName);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","dropIndex"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient findBatchWithOptions(String collection, JsonObject query, FindOptions options, Handler<AsyncResult<JsonObject>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","findBatch"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "Query", query);
+		VertxMongoDBUtils.addAttribute(attributes, "FindOptions", options);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","findBatchWithOptions"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient findOne(String collection, JsonObject query, JsonObject fields, Handler<AsyncResult<JsonObject>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","findOne"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "Query", query);
+		VertxMongoDBUtils.addAttribute(attributes, "Fields", fields);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","findOne"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient findOneAndDeleteWithOptions(String collection, JsonObject query, FindOptions findOptions, Handler<AsyncResult<JsonObject>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","findOneAndDelete"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "Query", query);
+		VertxMongoDBUtils.addAttribute(attributes, "FindOptions", findOptions);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","findOneAndDelete"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient findOneAndReplaceWithOptions(String collection, JsonObject query, JsonObject replace, FindOptions findOptions, UpdateOptions updateOptions, Handler<AsyncResult<JsonObject>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","findOneAndReplace"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "Query", query);
+		VertxMongoDBUtils.addAttribute(attributes, "FindOptions", findOptions);
+		VertxMongoDBUtils.addAttribute(attributes, "UpdateOptions", updateOptions);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","findOneAndReplace"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient findOneAndUpdateWithOptions(String collection, JsonObject query, JsonObject update, FindOptions findOptions, UpdateOptions updateOptions, Handler<AsyncResult<JsonObject>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","findOneAndUpdate"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "Query", query);
+		VertxMongoDBUtils.addAttribute(attributes, "FindOptions", findOptions);
+		VertxMongoDBUtils.addAttribute(attributes, "UpdateOptions", updateOptions);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","findOneAndUpdate"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient findWithOptions(String collection, JsonObject query, FindOptions options, Handler<AsyncResult<List<JsonObject>>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","find"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "Query", query);
+		VertxMongoDBUtils.addAttribute(attributes, "FindOptions", options);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","findWithOptions"});
 		return Weaver.callOriginal();
 	}
 	
@@ -113,31 +201,63 @@ public abstract class MongoClientImpl {
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient insertWithOptions(String collection, JsonObject document, WriteOption writeOption, Handler<AsyncResult<String>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","insert"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "WriteOption", writeOption);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","insert"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient listIndexes(String collection, Handler<AsyncResult<JsonArray>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","listIndexes"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","listIndexes"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public MongoClient removeDocumentsWithOptions(String collection, JsonObject query, WriteOption writeOption, Handler<AsyncResult<MongoClientDeleteResult>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","removeDocuments"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "Query", query);
+		VertxMongoDBUtils.addAttribute(attributes, "WriteOption", writeOption);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","removeDocuments"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public MongoClient removeDocumentWithOptions(String collection, JsonObject query, WriteOption writeOption, Handler<AsyncResult<MongoClientDeleteResult>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","removeDocument"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "Query", query);
+		VertxMongoDBUtils.addAttribute(attributes, "WriteOption", writeOption);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","removeDocument"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient removeOneWithOptions(String collection, JsonObject query, WriteOption writeOption, Handler<AsyncResult<Void>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","removeOne"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "Query", query);
+		VertxMongoDBUtils.addAttribute(attributes, "WriteOption", writeOption);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","removeOne"});
 		return Weaver.callOriginal();
 	}
 	
@@ -149,13 +269,26 @@ public abstract class MongoClientImpl {
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient saveWithOptions(String collection, JsonObject document, WriteOption writeOption, Handler<AsyncResult<String>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","save"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "WriteOption", writeOption);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","save"});
 		return Weaver.callOriginal();
 	}
 	
 	@Trace(dispatcher=true)
 	public io.vertx.ext.mongo.MongoClient updateCollectionWithOptions(String collection, JsonObject query, JsonObject update, UpdateOptions options,Handler<AsyncResult<MongoClientUpdateResult>> resultHandler) {
-		NewRelic.getAgent().getTracedMethod().setMetricName(new String[] {"Custom","Vertx","MongoDBClient","updateCollection"});
+		HashMap<String, Object> attributes = new HashMap<String, Object>();
+		VertxMongoDBUtils.addAttribute(attributes, "Collection", collection);
+		VertxMongoDBUtils.addAttribute(attributes, "Query", query);
+		VertxMongoDBUtils.addAttribute(attributes, "UpdateOption", options);
+		
+		TracedMethod traced = NewRelic.getAgent().getTracedMethod();
+		traced.addCustomAttributes(attributes);
+		traced.setMetricName(new String[] {"Custom","Vertx","MongoDBClient","updateCollection"});
 		return Weaver.callOriginal();
 	}
 	
