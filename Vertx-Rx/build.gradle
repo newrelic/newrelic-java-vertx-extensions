@@ -15,7 +15,7 @@ dependencies {
 
 jar {
   manifest {
-    attributes 'Implementation-Title': 'Vertx-Rx.Vertx-Rx'
+    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.Vertx-Rx'
     attributes 'Implementation-Vendor': 'New Relic Labs'
     attributes 'Implementation-Vendor-Id': 'com.newrelic.labs'
     attributes 'Implementation-Version': 1.0

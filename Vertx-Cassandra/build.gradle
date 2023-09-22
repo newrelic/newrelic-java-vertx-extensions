@@ -15,7 +15,7 @@ dependencies {
 
 jar {
   manifest {
-    attributes 'Implementation-Title': 'Vertx-Cassandra.Vertx-Cassandra'
+    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.Vertx-Cassandra'
     attributes 'Implementation-Vendor': 'New Relic Labs'
     attributes 'Implementation-Vendor-Id': 'com.newrelic.labs'
     attributes 'Implementation-Version': 1.0
