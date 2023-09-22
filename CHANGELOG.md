@@ -1,12 +1,8 @@
 ## Version: [v2.0.1](https://github.com/newrelic-experimental/newrelic-java-vertx-extensions/releases/tag/v2.0.1) | Created: 2023-09-22
+
 ### Build Upgrades
-- Updated vendor title
+
 - Updated vendor title and added release workflow
-
-
-## Version: [v2.0.1](https://github.com/newrelic-experimental/newrelic-java-vertx-extensions/releases/tag/v2.0.1) | Created: 2023-09-22
-### Build Upgrades
-- Updated vendor title
 
 
 ## Installation
