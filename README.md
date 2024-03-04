@@ -15,6 +15,7 @@
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/newrelic/newrelic-java-vertx-extensions)
 ![GitHub pull requests closed](https://img.shields.io/github/issues-pr-closed/newrelic/newrelic-java-vertx-extensions)
 
+# New Relic Java Instrumentation for Vertx Extensions
 
 ## Installation
 
