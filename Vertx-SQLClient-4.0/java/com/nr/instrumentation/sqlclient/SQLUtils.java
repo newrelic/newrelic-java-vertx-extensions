@@ -45,15 +45,6 @@ public class SQLUtils {
 		if(classname.startsWith("pg")) {
 			return "Postgres";
 		}
-		if (classname.startsWith("oracle")) {
-			return "Oracle"; 
-		}
-		if (classname.startsWith("mssql")) {
-			return "MSSQL"; 
-		}
-		if (classname.startsWith("db2")) {
-			return "IBMDB2"; 
-		}
 		
 		return "Unknown";
 	}

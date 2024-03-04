@@ -93,6 +93,15 @@ public class Utils {
 		if(classname.startsWith("pg")) {
 			return PostgresDatabaseVendor.INSTANCE;
 		}
+		if(classname.startsWith("mssql")) {
+			return MSSQLDatabaseVendor.INSTANCE;
+		}
+		if(classname.startsWith("oracle")) {
+			return OracleDatabaseVendor.INSTANCE;
+		}
+		if(classname.startsWith("db2")) {
+			return DB2DatabaseVendor.INSTANCE;
+		}
 		return UnknownDatabaseVendor.INSTANCE;
 	}
 
@@ -104,6 +113,15 @@ public class Utils {
 		}
 		if(classname.startsWith("pg")) {
 			return PostgresDatabaseVendor.INSTANCE;
+		}
+		if(classname.startsWith("mssql")) {
+			return MSSQLDatabaseVendor.INSTANCE;
+		}
+		if(classname.startsWith("oracle")) {
+			return OracleDatabaseVendor.INSTANCE;
+		}
+		if(classname.startsWith("db2")) {
+			return DB2DatabaseVendor.INSTANCE;
 		}
 		return UnknownDatabaseVendor.INSTANCE;
 	}
