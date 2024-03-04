@@ -10,7 +10,7 @@
 ![GitHub Release Date](https://img.shields.io/github/release-date/newrelic/newrelic-java-vertx-extensions)
 
 
-![GitHub issues](https://img.shields.io/github/issues/newrelic/newrelic-java-rmi)
+![GitHub issues](https://img.shields.io/github/issues/newrelic/newrelic-java-vertx-extensions)
 ![GitHub issues closed](https://img.shields.io/github/issues-closed/newrelic/newrelic-java-vertx-extensions)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/newrelic/newrelic-java-vertx-extensions)
 ![GitHub pull requests closed](https://img.shields.io/github/issues-pr-closed/newrelic/newrelic-java-vertx-extensions)
