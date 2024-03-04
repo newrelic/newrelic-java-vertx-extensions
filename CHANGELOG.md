@@ -1,3 +1,8 @@
+## Version: [v2.1.1](https://github.com/newrelic-experimental/newrelic-java-vertx-extensions/releases/tag/v2.1.1) | Created: 2024-03-04
+### Features
+- Added Vertx-SQLClient 4 and 4.1 support
+
+
 ## Version: [v2.0.1](https://github.com/newrelic-experimental/newrelic-java-vertx-extensions/releases/tag/v2.0.1) | Created: 2023-09-22
 
 ### Build Upgrades
