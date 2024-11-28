@@ -1,3 +1,8 @@
+## Version: [v2.2.1](https://github.com/newrelic/newrelic-java-vertx-extensions/releases/tag/v2.2.1) | Created: 2024-11-28
+### Bug Fixes
+- Emoving Vertx-Rx until we fix problems with it
+
+
 ## Version: [v2.1.4](https://github.com/newrelic/newrelic-java-vertx-extensions/releases/tag/v2.1.4) | Created: 2024-07-25
 
 
