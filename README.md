@@ -27,7 +27,7 @@ To install:
 
 ## Getting Started
 
-## Building
+## Building 
 
 If you make changes to the instrumentation code and need to build the instrumentation jars, follow these steps
 1. Set environment variable NEW_RELIC_EXTENSIONS_DIR.  Its value should be the directory where you want to build the jars (i.e. the extensions directory of the Java Agent).   
