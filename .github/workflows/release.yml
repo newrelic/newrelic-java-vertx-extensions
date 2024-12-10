@@ -1,7 +1,7 @@
 name: Build and Release (Manual Run) v1.3
 
-on: 
- workflow_dispatch: # This event allows manual triggering
+on:
+  workflow_dispatch: # This event allows manual triggering
 
 env:
   THIRD_PARTY_GIT_AUTHOR_EMAIL: opensource+bot@newrelic.com
@@ -15,14 +15,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          
+          persist-credentials: false
 
       - name: Set up JDK 8
         uses: actions/setup-java@v3
         with:
           java-version: 8
-          distribution: 'temurin'
-
+          distribution: "temurin"
 
       - name: Set Extensions Dir
         id: set_ext_dir
@@ -40,19 +39,19 @@ jobs:
       - name: Identify Release Type
         id: define_release_type
         run: |
-           echo "Generating changelog to check type of release..."
-           old_tag=$(git describe --abbrev=0 --tags 2>/dev/null) || true
-           if [[ -n "$old_tag" ]]; then
-            changelog=$(git log --pretty=format:"- %s (%h)" $old_tag..HEAD)
-           fi
-           if echo "$changelog" | grep -iqE '\bBREAKING CHANGE\b'; then
-            echo "RELEASE_TYPE=major" >> $GITHUB_ENV
-           elif echo "$changelog" | grep -iqE '\bfeat\b'; then
-            echo "RELEASE_TYPE=minor" >> $GITHUB_ENV
-           else
-            echo "RELEASE_TYPE=patch" >> $GITHUB_ENV
-           fi
-           
+          echo "Generating changelog to check type of release..."
+          old_tag=$(git describe --abbrev=0 --tags 2>/dev/null) || true
+          if [[ -n "$old_tag" ]]; then
+           changelog=$(git log --pretty=format:"- %s (%h)" $old_tag..HEAD)
+          fi
+          if echo "$changelog" | grep -iqE '\bBREAKING CHANGE\b'; then
+           echo "RELEASE_TYPE=major" >> $GITHUB_ENV
+          elif echo "$changelog" | grep -iqE '\bfeat\b'; then
+           echo "RELEASE_TYPE=minor" >> $GITHUB_ENV
+          else
+           echo "RELEASE_TYPE=patch" >> $GITHUB_ENV
+          fi
+
       - name: Set release version
         id: set_release_version
         run: |
@@ -69,7 +68,7 @@ jobs:
             current_major_version=$(echo $latest_tag | cut -d'.' -f1 | sed 's/v//')
             current_minor_version=$(echo $latest_tag | cut -d'.' -f2)
             current_patch_revision=$(echo $latest_tag | cut -d'.' -f3)
-    
+
             if [ "${{ env.RELEASE_TYPE }}" = "major" ]; then
               major_version=$((current_major_version +1 ))
             elif [ "${{ env.RELEASE_TYPE }}" = "minor" ]; then
@@ -80,7 +79,7 @@ jobs:
               minor_version=$((current_minor_version))
               major_version=$((current_major_version))
             fi
-         
+
           fi
 
           # Set the release version environment variable
@@ -105,8 +104,6 @@ jobs:
           cd ${HOME}/release
           zip -r /tmp/to/${{ env.RELEASE_NAME}}${{ steps.set_tag.outputs.tag }}.zip *.jar
           cd ${{env.CURRENT}}
-
-      
 
       - name: Create Release
         id: create_release
@@ -144,7 +141,7 @@ jobs:
           asset_name: ${{ env.RELEASE_NAME}}${{ steps.set_tag.outputs.tag }}.zip
           upload_url: ${{ env.RELEASE_UPLOAD_URL }}
           asset_content_type: application/zip
-     
+
       - name: "Generate release changelog"
         id: github_changelog
         uses: Helmisek/conventional-changelog-generator@v1.0.6-release
@@ -152,8 +149,7 @@ jobs:
           repo-token: ${{ secrets.OPENSOURCE_BOT_TOKEN }}
           commit-types: "fix:Bug Fixes,feat:Features,doc:Documentation,build:Build Upgrades,BREAKING CHANGE:Enhancements"
           template-path: ".github/workflows/CHANGELOG.tpl.md"
-         
-     
+
       - name: update CHANGELOG.md
         run: |
           # Content to add at the top
@@ -166,13 +162,13 @@ jobs:
           file="CHANGELOG.md"
 
           # Create a temporary file with the content at the top and existing content below
-          
+
           echo "$content" > temp_file.txt
           cat "$file" >> temp_file.txt
 
           # Overwrite the original file with the updated content
           mv temp_file.txt "$file"
-          
+
           # Commit the updated CHANGELOG.md file
            git add CHANGELOG.md
            git config  user.email "${{ env.THIRD_PARTY_GIT_AUTHOR_EMAIL }}"
@@ -181,13 +177,13 @@ jobs:
 
           # Push the changes to the remote repository
            git push --quiet --set-upstream origin HEAD
-      
+
       - name: Get Compare URL
         run: |
-            compare=$(echo ${{ env.RELEASE_URL }} | sed 's/releases\/tag.*/compare/')
-            compareurl=$(echo "\nFull Changelog: ($compare/${{ env.LATEST_TAG }}...${{ steps.set_tag.outputs.tag }})")
-            echo "COMPAREURL=${compareurl}" >> $GITHUB_ENV
-            
+          compare=$(echo ${{ env.RELEASE_URL }} | sed 's/releases\/tag.*/compare/')
+          compareurl=$(echo "\nFull Changelog: ($compare/${{ env.LATEST_TAG }}...${{ steps.set_tag.outputs.tag }})")
+          echo "COMPAREURL=${compareurl}" >> $GITHUB_ENV
+
       - name: Update Release
         id: update_release
         uses: actions/github-script@v6
@@ -217,4 +213,3 @@ jobs:
               } catch (error) {
                 core.setFailed(error.message);
               }
-
