@@ -21,7 +21,7 @@ jar {
 }
 
 verifyInstrumentation {
-   passes 'io.vertx:vertx-sql-client:[4.1.0,4.5.0)'
+   passes 'io.vertx:vertx-sql-client:[4.1.0,)'
   	excludeRegex '.*SNAPSHOT'
   	excludeRegex '.*milestone.*'
   	excludeRegex '.*alpha.*'
