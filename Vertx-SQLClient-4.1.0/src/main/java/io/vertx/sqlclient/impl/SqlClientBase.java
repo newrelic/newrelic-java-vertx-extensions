@@ -10,6 +10,7 @@ import com.newrelic.api.agent.Trace;
 import com.newrelic.api.agent.weaver.Weave;
 import com.newrelic.api.agent.weaver.Weaver;
 import com.nr.instrumentation.sqlclient.NRHandlerWrapper;
+import com.nr.instrumentation.sqlclient.R2dbcObfuscator;
 import com.nr.instrumentation.sqlclient.SQLUtils;
 
 import io.vertx.core.AsyncResult;
@@ -25,7 +26,7 @@ public abstract class SqlClientBase {
 
 	@Trace
 	public Query<RowSet<Row>> query(String sql) {
-		Query<RowSet<Row>> q = Weaver.callOriginal();
+		Query q = Weaver.callOriginal();
 		return q;
 	}
 
@@ -49,7 +50,8 @@ public abstract class SqlClientBase {
 					ParsedDatabaseStatement parsedStmt = SQLUtils.getParsed(sql);
 
 					params = DatastoreParameters.product(dbType).collection(parsedStmt.getModel())
-							.operation(parsedStmt.getOperation()).build();
+							.operation(parsedStmt.getOperation()).noInstance().databaseName(dbType)
+							.slowQuery(sql, R2dbcObfuscator.MYSQL_QUERY_CONVERTER).build();
 				}
 				NRHandlerWrapper wrapper = new NRHandlerWrapper(handler, segment, params);
 				handler = wrapper;
