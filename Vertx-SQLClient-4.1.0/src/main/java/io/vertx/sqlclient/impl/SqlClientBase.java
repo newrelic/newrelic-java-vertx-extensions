@@ -35,7 +35,7 @@ public abstract class SqlClientBase {
 
 		protected final String sql = Weaver.callOriginal();
 
-		@Trace
+		@Trace(dispatcher = true)
 		public void execute(Handler<AsyncResult<R>> handler) {
 
 			String dbType = SocketConnectionBase.dbTypeContext.get();
@@ -63,12 +63,12 @@ public abstract class SqlClientBase {
 	@Weave
 	private static abstract class PreparedQueryImpl<T, R extends SqlResult<T>> {
 
-		@Trace
+		@Trace(dispatcher = true)
 		public void execute(Tuple arguments, Handler<AsyncResult<R>> handler) {
 			Weaver.callOriginal();
 		}
 
-		@Trace
+		@Trace(dispatcher = true)
 		public void executeBatch(List<Tuple> batch, Handler<AsyncResult<R>> handler) {
 			Weaver.callOriginal();
 		}
