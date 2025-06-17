@@ -19,7 +19,7 @@ public class NRCompletableListener<R> implements Completable<R> {
 	private Token token = null;
 	private DatastoreParameters params = null;
 
-	public NRCompletableListener(Segment s, DatastoreParameters p) {
+	public NRCompletableListener(Segment s, DatastoreParameters p,  Completable<R> d) {
 		AgentBridge.getAgent().getLogger().log(Level.FINEST, "NRCompletableListener initialised with segment: {0}", s);
 
 		// Get the token right when the listener is created,
@@ -27,6 +27,8 @@ public class NRCompletableListener<R> implements Completable<R> {
 		token = NewRelic.getAgent().getTransaction().getToken();
 		segment = s;
 		params = p;
+		delegate= d;
+	
 
 		if (!isTransformed) {
 			isTransformed = true;
@@ -43,6 +45,7 @@ public class NRCompletableListener<R> implements Completable<R> {
 			// Link to the original context before doing anything else
 			token.linkAndExpire();
 			token = null;
+			System.out.println("Token linked and expired in NRCompletableListener");
 		}
 
 		if (segment != null) {
@@ -52,14 +55,16 @@ public class NRCompletableListener<R> implements Completable<R> {
 			}
 			segment.end();
 			segment = null;
+			System.out.println("Segment ended in NRCompletableListener");
+		} else if (params != null) {
+
+			NewRelic.getAgent().getTracedMethod().reportAsExternal(params);
+			System.out.println("Params reported in NRCompletableListener");
 		}
-		// else if (params != null) {
-		// // This case should ideally not be hit if segment is properly handled
-		// NewRelic.getAgent().getTracedMethod().reportAsExternal(params);
-		// }
 
 		if (delegate != null) {
 			delegate.complete(result, failure);
+			System.out.println("Delegate completed in NRCompletableListener");
 		}
 	}
 }
