@@ -1,21 +1,21 @@
 
-// Build.gradle generated for instrumentation module Vertx-Redis-4.0
+// Build.gradle generated for instrumentation module Vertx-Cassandra-4.x
 
 apply plugin: 'java'
 
 dependencies {
-	implementation group: 'io.vertx', name: 'vertx-redis-client', version: '4.3.1'
+   implementation group: 'io.vertx', name: 'vertx-cassandra-client', version: '5.0.0'
 
    // New Relic Labs Java Agent dependencies
    implementation 'com.newrelic.agent.java:newrelic-agent:6.0.0'
    implementation 'com.newrelic.agent.java:newrelic-api:6.0.0'
-
    implementation fileTree(include: ['*.jar'], dir: '../libs')
+   implementation fileTree(include: ['*.jar'], dir: '../test-lib')
 }
 
 jar {
   manifest {
-    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.Vertx-Redis-4.3'
+    attributes 'Implementation-Title': 'com.newrelic.instrumentation.labs.Vertx-Cassandra-5.x'
     attributes 'Implementation-Vendor': 'New Relic Labs'
     attributes 'Implementation-Vendor-Id': 'com.newrelic.labs'
     attributes 'Implementation-Version': 1.0
@@ -23,9 +23,9 @@ jar {
 }
 
 verifyInstrumentation {
-	passesOnly "io.vertx:vertx-redis-client:[4.3.1,5.0.0)"
-	excludeRegex '.*SNAPSHOT'
-	excludeRegex '.*milestone.*'
-	excludeRegex '.*Beta.*'
-	excludeRegex '.*CR.*'
+  	passes 'io.vertx:vertx-cassandra-client:[5.0.0,)'
+  	excludeRegex '.*SNAPSHOT'
+  	excludeRegex '.*Beta.*'
+  	excludeRegex '.*milestone.*'
+  	excludeRegex '.*CR.*'
 }
