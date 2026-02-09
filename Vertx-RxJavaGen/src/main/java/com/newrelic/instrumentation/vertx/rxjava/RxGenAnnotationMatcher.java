@@ -24,15 +24,15 @@ public class RxGenAnnotationMatcher extends ClassMatcher {
 		if (annotations != null) {
 			for (AnnotationNode annotationNode : annotations) {
 				String desc = annotationNode.desc;
-				NewRelic.getAgent().getLogger().log(Level.FINE, "Check annotation {0} for class {1}",desc,cr.getClassName());
-				
+
 				if (desc.contains(rxGenAnnotation)) {
-					NewRelic.getAgent().getLogger().log(Level.FINE, "Found RxGen Annotation for class {0}",
-							cr.getClassName());
-					return true;
+					String classname = cr.getClassName();
+					if(!classname.startsWith("io.vertx") && !classname.startsWith("io/vertx")) {
+						NewRelic.getAgent().getLogger().log(Level.FINE, "Found RxGen Annotation for class {0}",cr.getClassName());
+						return true;
+					}
 				}
 			} 
-			NewRelic.getAgent().getLogger().log(Level.FINE, "Did not find RxGen Annotation in visible for class {0}",cr.getClassName());
 		}
 
 		annotations = node.invisibleAnnotations;
@@ -40,12 +40,13 @@ public class RxGenAnnotationMatcher extends ClassMatcher {
 			for (AnnotationNode annotationNode : annotations) {
 				String desc = annotationNode.desc;
 				if (desc.contains(rxGenAnnotation)) {
-					NewRelic.getAgent().getLogger().log(Level.FINE, "Found RxGen Annotation for class {0}",
-							cr.getClassName());
-					return true;
+					String classname = cr.getClassName();
+					if(!classname.startsWith("io.vertx") && !classname.startsWith("io/vertx")) {
+						NewRelic.getAgent().getLogger().log(Level.FINE, "Found RxGen Annotation for class {0}",cr.getClassName());
+						return true;
+					}
 				}
 			} 
-			NewRelic.getAgent().getLogger().log(Level.FINE, "Did not find RxGen Annotation in invisible for class {0}",cr.getClassName());
 		}
 		
 		return false;
@@ -59,7 +60,10 @@ public class RxGenAnnotationMatcher extends ClassMatcher {
 				for (Annotation annotation : clazzAnnotations) {
 					Class<? extends Annotation> aType = annotation.annotationType();
 					if (aType.getName().equals(rxGenAnnotation)) {
-						return true;
+						String classname = clazz.getName();
+						if(!classname.startsWith("io.vertx") && !classname.startsWith("io/vertx")) {
+							return true;
+						}
 					}
 				}
 
