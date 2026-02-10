@@ -24,7 +24,7 @@ jar {
 }
 
 verifyInstrumentation {
-  	passes 'io.vertx:vertx-rx-java2:[3.9.0,5.0.0)'
+  	passesOnly 'io.vertx:vertx-rx-java2:[3.9.0,5.0.0)'
   	excludeRegex '.*SNAPSHOT'
   	excludeRegex '.*milestone.*'
   	excludeRegex '.*Beta.*'

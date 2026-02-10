@@ -23,7 +23,7 @@ jar {
 
 verifyInstrumentation {
   	passes ('io.vertx:vertx-rx-java2:[4.0.0,)' ) {
-  	  compile('io.vertx:vertx-cassandra-client:4.0.0')
+        implementation('io.vertx:vertx-cassandra-client:4.0.0')
   	}
   	excludeRegex '.*SNAPSHOT'
   	excludeRegex '.*milestone.*'

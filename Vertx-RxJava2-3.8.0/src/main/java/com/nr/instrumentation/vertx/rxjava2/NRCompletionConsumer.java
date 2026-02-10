@@ -1,0 +1,20 @@
+package com.nr.instrumentation.vertx.rxjava2;
+
+import io.reactivex.functions.Consumer;
+
+public class NRCompletionConsumer<T> implements Consumer<T> {
+	
+	private NRHolder holder = null;
+	
+	public NRCompletionConsumer(NRHolder h) {
+		holder = h;
+	}
+
+	@Override
+	public void accept(T t) throws Exception {
+		if(holder != null) {
+			holder.endSegment();
+		}
+	}
+
+}
