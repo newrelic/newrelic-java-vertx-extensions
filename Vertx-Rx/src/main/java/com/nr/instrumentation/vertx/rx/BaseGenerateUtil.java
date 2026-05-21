@@ -481,6 +481,9 @@ public abstract class BaseGenerateUtil extends Thread {
 				JarEntry entry = entries.nextElement();
 				if(entry.isDirectory()) {
 					File dest = new File(libDirectory,entry.getName());
+					if(!dest.getCanonicalPath().startsWith(libDirectory.getCanonicalPath() + File.separator)) {
+						throw new IOException("Zip Slip: illegal entry " + entry.getName());
+					}
 					dest.mkdirs();
 					continue;
 				}
@@ -488,6 +491,9 @@ public abstract class BaseGenerateUtil extends Thread {
 				if(entry != null) {
 					InputStream in = nrJar.getInputStream(entry);
 					File outFile = new File(libDirectory,entry.getName());
+					if(!outFile.getCanonicalPath().startsWith(libDirectory.getCanonicalPath() + File.separator)) {
+						throw new IOException("Zip Slip: illegal entry " + entry.getName());
+					}
 					FileOutputStream out = new FileOutputStream(outFile);
 					int size = 4098;
 					byte[] buffer = new byte[size];
