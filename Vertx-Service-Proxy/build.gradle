@@ -7,10 +7,10 @@ dependencies {
 	implementation group: 'io.vertx', name: 'vertx-service-proxy', version: '3.6.0'
 
    // New Relic Labs Java Agent dependencies
-   implementation 'com.newrelic.agent.java:newrelic-agent:6.0.0'
-   implementation 'com.newrelic.agent.java:newrelic-api:6.0.0'
+   implementation 'com.newrelic.agent.java:newrelic-agent:' + project.findProperty('java.agent.version')
+   implementation 'com.newrelic.agent.java:newrelic-api:' + project.findProperty('java.agent.version')
 
-   implementation fileTree(include: ['*.jar'], dir: '../libs')
+   implementation 'com.newrelic.agent.java:agent-bridge:' + project.findProperty('java.agent.version')
 }
 
 jar {
@@ -23,7 +23,8 @@ jar {
 }
 
 verifyInstrumentation {
-  	passes 'io.vertx:vertx-service-proxy:[3.6.0,)'
+	passes 'io.vertx:vertx-service-proxy:[3.6.0,)'
   	excludeRegex '.*SNAPSHOT'
   	excludeRegex '.*milestone.*'
+  	excludeRegex '.*CR.*'
 }

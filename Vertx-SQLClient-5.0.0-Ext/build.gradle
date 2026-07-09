@@ -6,7 +6,8 @@ dependencies {
    implementation 'io.vertx:vertx-sql-client:5.0.0'
    
    // New Relic Labs Java Agent dependencies
-   implementation fileTree(include: ['*.jar'], dir: '../libs')
+   implementation 'com.newrelic.agent.java:agent-bridge:' + project.findProperty('java.agent.version')
+   implementation 'com.newrelic.agent.java:agent-bridge-datastore:' + project.findProperty('java.agent.version')
 }
 
 jar {
@@ -19,7 +20,7 @@ jar {
 }
 
 verifyInstrumentation {
-   passes 'io.vertx:vertx-sql-client:[5.0.0,)'
+	passesOnly 'io.vertx:vertx-sql-client:[5.0.0,)'
   	excludeRegex '.*SNAPSHOT'
   	excludeRegex '.*milestone.*'
   	excludeRegex '.*alpha.*'

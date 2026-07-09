@@ -7,10 +7,10 @@ dependencies {
 	implementation group: 'io.vertx', name: 'vertx-redis-client', version: '3.6.0'
 
    // New Relic Labs Java Agent dependencies
-   implementation 'com.newrelic.agent.java:newrelic-agent:6.0.0'
-   implementation 'com.newrelic.agent.java:newrelic-api:6.0.0'
+   implementation 'com.newrelic.agent.java:newrelic-agent:' + project.findProperty('java.agent.version')
+   implementation 'com.newrelic.agent.java:newrelic-api:' + project.findProperty('java.agent.version')
 
-   implementation fileTree(include: ['*.jar'], dir: '../libs')
+   implementation 'com.newrelic.agent.java:agent-bridge:' + project.findProperty('java.agent.version')
 }
 
 jar {
@@ -24,7 +24,7 @@ jar {
 
 verifyInstrumentation {
 	passes('io.vertx:vertx-redis-client:[3.6.0,3.7.0)') {
-		compile('io.reactivex.rxjava2:rxjava:2.2.17')
+		implementation('io.reactivex.rxjava2:rxjava:2.2.17')
 	}
 	excludeRegex '.*SNAPSHOT'
 	excludeRegex '.*milestone.*'
