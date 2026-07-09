@@ -8,7 +8,7 @@ dependencies {
      implementation 'io.vertx:vertx-mongo-client:4.0.0'
      
    // New Relic Labs Java Agent dependencies
-   implementation fileTree(include: ['*.jar'], dir: '../libs')
+   implementation 'com.newrelic.agent.java:agent-bridge:' + project.findProperty('java.agent.version')
    implementation fileTree(include: ['*.jar'], dir: '../test-lib')
 }
 
@@ -23,7 +23,7 @@ jar {
 
 verifyInstrumentation {
   	passes ('io.vertx:vertx-rx-java2:[4.0.0,)' ) {
-     compile('io.vertx:vertx-mongo-client:3.4.2')
+     implementation('io.vertx:vertx-mongo-client:3.4.2')
   	}
   	excludeRegex '.*SNAPSHOT'
   	excludeRegex '.*milestone.*'

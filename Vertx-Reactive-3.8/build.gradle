@@ -8,10 +8,11 @@ dependencies {
     implementation group: 'io.vertx', name: 'vertx-jdbc-client', version: '3.8.0'
 
    // New Relic Labs Java Agent dependencies
-   implementation 'com.newrelic.agent.java:newrelic-agent:6.0.0'
-   implementation 'com.newrelic.agent.java:newrelic-api:6.0.0'
+   implementation 'com.newrelic.agent.java:newrelic-agent:' + project.findProperty('java.agent.version')
+   implementation 'com.newrelic.agent.java:newrelic-api:' + project.findProperty('java.agent.version')
 
-   implementation fileTree(include: ['*.jar'], dir: '../libs')
+   implementation 'com.newrelic.agent.java:agent-bridge:' + project.findProperty('java.agent.version')
+   implementation 'com.newrelic.agent.java:agent-bridge-datastore:' + project.findProperty('java.agent.version')
 }
 
 jar {
@@ -24,7 +25,7 @@ jar {
 }
 
 verifyInstrumentation {
-  	passes 'io.vertx:vertx-rx-java2:[3.8.0,3.9.0)'
+	passesOnly 'io.vertx:vertx-rx-java2:[3.8.0,3.9.0)'
   	excludeRegex '.*SNAPSHOT'
   	excludeRegex '.*milestone.*'
   	excludeRegex '.*Beta.*'
